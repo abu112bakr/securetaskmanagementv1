@@ -1,3 +1,8 @@
+# Read Me First
+The following was discovered as part of building this project:
+
+* The original package name 'com.example.securetaskmanagement.' is invalid and this project uses 'com.example.securetaskmanagement' instead.
+
 # Getting Started
 
 ### Reference Documentation

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.securetaskmanagement</groupId>
-	<artifactId>SecuretaskmanagementApplication</artifactId>
+	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SecuretaskmanagementApplication</name>
+	<name>SecureTaskManagementApp</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
