@@ -76,7 +76,27 @@ public class HomeController {
 // InMemoryUserDetailsManager need object of UserDetails, UserDetails is an interface so we need a class for it. 
 // we use inbuild User from spring framwork & this User is a class which implements UserDetails interface
 // we will use builder of User class
-
+// Part 2 
+// working with db to verify user
+// we will modify AuthenticationProvider, its interface so we will use DaoAuthenticationProvider class which implements it & this Dao is for database
+// we will create our own UserDetailsService implementation to connect with db
+// private UserDetailsService userDetailsService; // spring will provide the onject needed for implementation of this interface
+// we created MyUserDetailsService.java which implements UserDetailsService 
+// In MyUserDetailsService.java we will use loadUserByUsername and for it to work we conenct database
+// database postgresql: telusko1
+// no password given while creating telusko1
+// creating table from pg admin
+// create table users(id integer primary key, username text, password text )
+// select * from users;
+// insert into users values (1, 'navin', 'n@123'), (2, 'sushil', 's@123');
+// we are using private UserDetailsService userDetailsService; // spring will provide the onject needed for implementation of this interface
+// in UserRepo.java we are using Users.java
+// Users.java is in model package
+// After creating Users.java class we write postgresql code in applicaiton.properties
+// spring.datasource.url=jdbc:postgresql://localhost:5432/telusko1
+// spring.datasource.username= postgres
+// spring.datasource.password= admin
+// admin is the password I used to connect to PostgreSQL 18
 
 
 
