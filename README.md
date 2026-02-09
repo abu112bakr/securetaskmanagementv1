@@ -11,6 +11,11 @@ The implementation follows **industry-standard Spring Security practices** and i
 
 ---
 
+## Architecture
+Architecture Pattern: Layered Architecture (Controller-Service-Repository)
+Security: Spring Security with custom authentication provider
+Database: PostgreSQL
+
 ## Features
 - Database-backed authentication (PostgreSQL)
 - Custom `UserDetailsService`
@@ -20,6 +25,49 @@ The implementation follows **industry-standard Spring Security practices** and i
   - Form-based login
   - HTTP Basic authentication
 - Clean separation of concerns (Entity, Repo, Service, Config)
+src/main/java/com/example/taskmanagement
+
+config
+   └── SecurityConfig.java
+        Spring Security configuration, filter chain, and authentication provider
+
+controller
+   ├── HomeController.java
+   ├── InfoController.java
+   ├── TaskController.java
+   └── UserController.java
+        Handles HTTP requests and API endpoints
+
+exception
+   ├── GlobalExceptionHandler.java
+   ├── TaskNotFoundException.java
+   └── UnauthorizedException.java
+        Centralized exception handling and custom exceptions
+
+model
+   ├── Status.java
+   ├── Task.java
+   ├── UserPrincipal.java
+   └── Users.java
+        Entity classes and security domain models
+
+repo
+   ├── TaskRepo.java
+   └── UserRepo.java
+        Data access layer (JPA repositories)
+
+service
+   ├── MyUserDetailsService.java
+   ├── TaskService.java
+   └── UserService.java
+        Business logic layer
+
+util
+   └── SecurityUtils.java
+        Utility methods for retrieving logged-in user details
+
+TaskmanagementApplication.java
+        Main Spring Boot application entry point
 
 ---
 
@@ -184,22 +232,6 @@ public class SecurityConfig {
 
 ---
 
-## Common Mistakes
-- Storing passwords in plain text
-- Using usernames instead of user IDs for authorization
-- Mixing stateless and session-based authentication
-- Putting authorization logic in controllers
-
----
-
-## Best Practices
-- Always hash passwords using BCrypt
-- Use user IDs for ownership checks
-- Perform authorization in the service layer
-- Keep entities separate from security logic
-- Add roles early for scalability
-
----
 
 ## Future Improvements
 - Role-based authorization (ADMIN / USER)
@@ -209,5 +241,4 @@ public class SecurityConfig {
 
 ---
 
-## Author
-Secure authentication module implemented and documented with a focus on **clean architecture and security best practices**.
+
